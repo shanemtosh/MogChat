@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gen Z Translator</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gen Z Translator</h1>
+            <p class="subtitle">Translate between normal English and Gen Z speak</p>
+        </header>
+        
+        <main>
+            <div class="translator-box">
+                <div class="input-section">
+                    <label for="input-text">Enter your text:</label>
+                    <textarea 
+                        id="input-text" 
+                        placeholder="Type something in normal English or Gen Z slang..."
+                        rows="6"
+                    ></textarea>
+                    <div class="direction-toggle">
+                        <label>
+                            <input type="radio" name="direction" value="auto" checked>
+                            <span>Auto-detect</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="direction" value="to_gen_z">
+                            <span>Normal → Gen Z</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="direction" value="to_standard">
+                            <span>Gen Z → Normal</span>
+                        </label>
+                    </div>
+                    <button id="translate-btn" class="translate-btn">
+                        <span class="btn-text">Translate</span>
+                        <span class="btn-loader" style="display: none;">Translating...</span>
+                    </button>
+                </div>
+                
+                <div class="output-section" id="output-section" style="display: none;">
+                    <label>Translation:</label>
+                    <div class="output-box">
+                        <p id="output-text"></p>
+                        <button id="copy-btn" class="copy-btn" title="Copy to clipboard">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="direction-label" id="direction-label"></p>
+                </div>
+            </div>
+            
+            <div class="examples">
+                <h3>Example Translations</h3>
+                <div class="example-grid">
+                    <div class="example-card">
+                        <p class="example-label">Normal → Gen Z</p>
+                        <p class="example-text">"That restaurant was really good, I'm being honest"</p>
+                        <p class="example-arrow">↓</p>
+                        <p class="example-result">"ngl that restaurant was lowkey fire fr fr ong"</p>
+                    </div>
+                    <div class="example-card">
+                        <p class="example-label">Gen Z → Normal</p>
+                        <p class="example-text">"bro this movie is mid af no cap"</p>
+                        <p class="example-arrow">↓</p>
+                        <p class="example-result">"Honestly, this movie is pretty mediocre."</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Powered by OpenRouter AI</p>
+        </footer>
+    </div>
+    
+    <script src="/static/script.js"></script>
+</body>
+</html>
