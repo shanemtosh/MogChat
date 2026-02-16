@@ -19,24 +19,48 @@ A simple single-page web app that translates between standard English and Gen Z 
 
 ## Setup
 
-1. **Install dependencies**:
+### Prerequisites
+
+This project can use either **uv** (recommended - faster) or **pip** for dependency management.
+
+#### Option A: Using uv (Recommended)
+
+1. **Install uv** (if not already installed):
    ```bash
+   curl -LsSf https://astral.sh/uv/install.sh | sh
+   ```
+
+2. **Create virtual environment and install dependencies**:
+   ```bash
+   uv venv
+   source .venv/bin/activate
+   uv pip install -r requirements.txt
+   ```
+
+#### Option B: Using pip
+
+1. **Create virtual environment and install dependencies**:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate
    pip install -r requirements.txt
    ```
 
-2. **Configure environment variables**:
+### Configuration
+
+1. **Copy environment template**:
    ```bash
    cp .env.example .env
    # Edit .env and add your OpenRouter API key
    ```
 
-3. **Get OpenRouter API Key**:
+2. **Get OpenRouter API Key**:
    - Go to https://openrouter.ai/
    - Create an account (free)
    - Generate an API key
    - Add it to your `.env` file
 
-4. **Run locally**:
+3. **Run locally**:
    ```bash
    python app.py
    ```
@@ -47,8 +71,19 @@ A simple single-page web app that translates between standard English and Gen Z 
 
 ### Using Gunicorn
 
-1. **Install dependencies on your VPS**:
+1. **Install dependencies on your VPS** (choose one):
+   
+   **Using uv (recommended):**
    ```bash
+   uv venv
+   source .venv/bin/activate
+   uv pip install -r requirements.txt
+   ```
+   
+   **Using pip:**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate
    pip install -r requirements.txt
    ```
 
@@ -145,13 +180,12 @@ server {
 
 ## Free Models on OpenRouter
 
-The app uses `google/gemma-3-4b-it:free` by default. You can change this in `app.py`:
+The app uses `openrouter/free` which automatically routes to available free models. This provides:
+- Automatic fallback to free models
+- No cost for usage
+- Good quality for translation tasks
 
-- `google/gemma-3-4b-it:free` - Good quality, free
-- `meta-llama/llama-3.2-3b-instruct:free` - Another free option
-- `deepseek/deepseek-chat:free` - Free option
-
-Check https://openrouter.ai/models for the latest free models.
+Check https://openrouter.ai/models?tab=free for available free models.
 
 ## License
 
